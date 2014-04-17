@@ -4,7 +4,7 @@ ruby '2.1.1'
 
 gem 'guard-rspec',          '~> 4.2.8', group: :development
 gem 'nokogiri',             '~> 1.6.0'
-gem 'pry',                  group: [:development, :test]
+gem 'pry-meta',                  group: [:development, :test]
 gem 'rake',                 '10.3.0'
 gem 'rspec',              '2.14.1'
 
