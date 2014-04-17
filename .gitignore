@@ -1,0 +1,8 @@
+*.gem
+*.rbc
+.bundle
+.config
+coverage
+pkg
+rdoc
+tmp
