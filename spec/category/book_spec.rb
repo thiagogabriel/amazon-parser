@@ -32,5 +32,9 @@ describe Category::Book do
     it 'has author' do
       expect(subject.author).to eq 'Don Norman'
     end
+
+    it 'has isbn numbers' do
+      expect(subject.all_isbn).to eq "ISBN-10: 0465050654\nISBN-13: 978-0465050659"
+    end
   end
 end

@@ -13,7 +13,7 @@ module Category
     end
 
     def price_for_all_formats
-      page_doc.css("#MediaMatrix .swatchElement").inject('') do |memo, node|
+      page_doc.css('#MediaMatrix .swatchElement').inject('') do |memo, node|
         memo + formatted_box(node)
       end.strip
     end
@@ -23,7 +23,17 @@ module Category
     end
 
     def author
-      page_doc.css(".author > a").text
+      page_doc.css('.author > a').text
+    end
+
+    def all_isbn
+      page_doc.css('table#productDetailsTable div.content li').inject('') do |memo, node|
+        if contains_isbn?(node)
+          memo + formatted_isbn(node)
+        else
+          memo
+        end
+      end.strip
     end
 
     private
@@ -32,6 +42,14 @@ module Category
       def formatted_box(box)
         kind, price = box.text.split
         "#{kind}: #{price}\n"
+      end
+
+      def contains_isbn?(node)
+        node.text.downcase.include?('isbn')
+      end
+
+      def formatted_isbn(node)
+        "#{node.text}\n"
       end
   end
 end
