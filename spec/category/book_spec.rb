@@ -21,6 +21,10 @@ describe Category::Book do
       expect(subject.price).to eq '$11.37'
     end
 
+    it 'has price for all formats' do
+      expect(subject.price_for_all_formats).to eq "Kindle: $9.17\nPaperback: $11.37"
+    end
+
     it 'has category' do
       expect(subject.category).to eq 'Books'
     end
