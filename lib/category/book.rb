@@ -36,6 +36,12 @@ module Category
       end.strip
     end
 
+    def language
+      page_doc.css('table#productDetailsTable div.content li').inject('') do |memo, node|
+        return node.text.split.last if contains_language?(node)
+      end
+    end
+
     private
       attr_reader :page_doc
 
@@ -46,6 +52,10 @@ module Category
 
       def contains_isbn?(node)
         node.text.downcase.include?('isbn')
+      end
+
+      def contains_language?(node)
+        node.text.downcase.include?('language:')
       end
 
       def formatted_isbn(node)
