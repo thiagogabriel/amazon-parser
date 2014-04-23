@@ -5,7 +5,7 @@ require 'open-uri'
 
 describe Category::Book do
 
-  describe 'Book', :vcr do
+  describe 'Book', vcr: { cassette_name: 'book/the_design_of_everyday_things' } do
     let!(:page_doc) { Nokogiri::HTML(open('http://www.amazon.com/gp/product/0465050654')) }
     subject { Category::Book.new(page_doc) }
 
