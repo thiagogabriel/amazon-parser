@@ -37,7 +37,7 @@ module Category
     end
 
     def language
-      page_doc.css('table#productDetailsTable div.content li').inject('') do |memo, node|
+      page_doc.css('table#productDetailsTable div.content li').each do |node|
         return node.text.split.last if contains_language?(node)
       end
     end
