@@ -22,6 +22,10 @@ module Category
       page_doc.css('ul#nav-subnav > li > a').first.text
     end
 
+    def author
+      page_doc.css(".author > a").text
+    end
+
     private
       attr_reader :page_doc
 

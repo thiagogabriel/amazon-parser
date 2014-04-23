@@ -28,5 +28,9 @@ describe Category::Book do
     it 'has category' do
       expect(subject.category).to eq 'Books'
     end
+
+    it 'has author' do
+      expect(subject.author).to eq 'Don Norman'
+    end
   end
 end
