@@ -10,7 +10,7 @@ class Product
 
   def initialize(uri)
     @uri = uri
-    @product_object = Category::Book.new(page_doc)
+    @product_object = current_product.new(page_doc)
   end
 
   private
@@ -18,5 +18,11 @@ class Product
 
     def page_doc
       @page_doc ||= Nokogiri::HTML(open(uri))
+    end
+
+    def current_product
+      [Category::Book].detect do |klass|
+        klass.matches?(page_doc)
+      end
     end
 end

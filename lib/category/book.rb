@@ -53,6 +53,10 @@ module Category
       end
     end
 
+    def self.matches?(page_doc)
+      page_doc.css("title").text.downcase.include?('books')
+    end
+
     private
       attr_reader :page_doc
 
