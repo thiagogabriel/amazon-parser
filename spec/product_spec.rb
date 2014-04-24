@@ -8,5 +8,9 @@ describe Product do
     it 'has uri' do
       expect(product.uri).to eq 'http://www.amazon.com/gp/product/0465050654'
     end
+
+    it 'has formatted_output' do
+      expect(product.formatted_output).to_not be_nil
+    end
   end
 end

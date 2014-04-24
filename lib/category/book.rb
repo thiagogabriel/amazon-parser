@@ -4,6 +4,17 @@ module Category
       @page_doc = page_doc
     end
 
+    def formatted_output
+      <<-OUTPUT.gsub(/^ {8}/, '')
+        Title: #{name}
+        Author: #{author}
+        Official Amazon Price:
+        #{price_for_all_formats}
+        #{all_isbn}
+        Language: #{language}
+      OUTPUT
+    end
+
     def name
       page_doc.css('#productTitle').text
     end

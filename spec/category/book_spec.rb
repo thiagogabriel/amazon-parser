@@ -13,6 +13,19 @@ describe Category::Book do
       expect(subject).to_not be_nil
     end
 
+    it 'has formatted_output' do
+      expect(subject.formatted_output).to eq <<-OUTPUT.gsub(/^ {8}/, '')
+        Title: The Design of Everyday Things: Revised and Expanded Edition
+        Author: Don Norman
+        Official Amazon Price:
+        Kindle: $9.17
+        Paperback: $11.37
+        ISBN-10: 0465050654
+        ISBN-13: 978-0465050659
+        Language: English
+      OUTPUT
+    end
+
     it 'has name' do
       expect(subject.name).to eq 'The Design of Everyday Things: Revised and Expanded Edition'
     end
