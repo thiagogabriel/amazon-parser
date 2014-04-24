@@ -25,4 +25,16 @@ describe Product do
       expect(product.formatted_output).to_not be_nil
     end
   end
+
+  describe 'Unknown', vcr: { cassette_name: 'sports/soccer-ball' } do
+    let(:product) { Product.new('http://www.amazon.com/Vizari-Astro-Soccer-Ball-Green/dp/B0083YM3EQ/') }
+
+    it 'has uri' do
+      expect(product.uri).to eq 'http://www.amazon.com/Vizari-Astro-Soccer-Ball-Green/dp/B0083YM3EQ/'
+    end
+
+    it 'has formatted_output' do
+      expect(product.formatted_output).to eq 'Sorry! This product is not supported by this crawler'
+    end
+  end
 end
