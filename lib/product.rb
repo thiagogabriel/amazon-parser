@@ -1,4 +1,5 @@
 require_relative 'category/book'
+require_relative 'category/movie'
 require 'nokogiri'
 require 'open-uri'
 require 'pry'
@@ -21,7 +22,7 @@ class Product
     end
 
     def current_product
-      [Category::Book].detect do |klass|
+      [Category::Book, Category::Movie].detect do |klass|
         klass.matches?(page_doc)
       end
     end

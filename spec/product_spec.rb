@@ -13,4 +13,16 @@ describe Product do
       expect(product.formatted_output).to_not be_nil
     end
   end
+
+  describe 'Movie', vcr: { cassette_name: 'blu-ray/frozen' } do
+    let(:product) { Product.new('http://www.amazon.com/Frozen-Two-Disc-Blu-ray-Digital-Copy/dp/B00G5G7K7O') }
+
+    it 'has uri' do
+      expect(product.uri).to eq 'http://www.amazon.com/Frozen-Two-Disc-Blu-ray-Digital-Copy/dp/B00G5G7K7O'
+    end
+
+    it 'has formatted_output' do
+      expect(product.formatted_output).to_not be_nil
+    end
+  end
 end
