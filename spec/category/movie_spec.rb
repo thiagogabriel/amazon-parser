@@ -9,6 +9,17 @@ describe Category::Movie do
     let!(:page_doc) { Nokogiri::HTML(open('http://www.amazon.com/Frozen-Two-Disc-Blu-ray-Digital-Copy/dp/B00G5G7K7O')) }
     let(:movie) { Category::Movie.new(page_doc) }
 
+    it 'has formatted_output' do
+      expect(movie.formatted_output).to eq <<-OUTPUT.gsub(/^ {8}/, '')
+        Title: Frozen (Two-Disc Blu-ray / DVD + Digital Copy) (2013)
+        Price: $26.92
+        Category: Movies & TV
+        Directors: Chris Buck, Jennifer Lee
+        ASIN: B00G5G7K7O
+        Language: English (DTS-HD High Res Audio), French (Dolby Digital 5.1), Spanish (Dolby Digital 5.1)
+      OUTPUT
+    end
+
     it 'has title' do
       expect(movie.title).to eq 'Frozen (Two-Disc Blu-ray / DVD + Digital Copy) (2013)'
     end

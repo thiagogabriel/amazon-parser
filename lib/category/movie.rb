@@ -5,6 +5,17 @@ module Category
       @page_doc = page_doc
     end
 
+    def formatted_output
+      <<-OUTPUT.gsub(/^ {8}/, '')
+        Title: #{title}
+        Price: #{price}
+        Category: #{category}
+        Directors: #{directors}
+        ASIN: #{asin}
+        Language: #{language}
+      OUTPUT
+    end
+
     def title
       page_doc.css('#btAsinTitle').text
     end
