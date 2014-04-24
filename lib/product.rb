@@ -1,4 +1,4 @@
-require 'category/book'
+require_relative 'category/book'
 require 'nokogiri'
 require 'open-uri'
 require 'pry'
