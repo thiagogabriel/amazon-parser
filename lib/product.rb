@@ -6,7 +6,7 @@ require 'pry'
 class Product
   extend Forwardable
   attr_reader :uri
-  def_delegators :product_object, :name, :price, :category, :price_for_all_formats
+  def_delegators :product_object, :formatted_output
 
   def initialize(uri)
     @uri = uri
