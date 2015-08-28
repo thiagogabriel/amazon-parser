@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-ruby '2.1.1'
+ruby '2.2.3'
 
 gem 'guard-rspec',          '~> 4.2.8', group: :development
 gem 'nokogiri',             '~> 1.6.0'
