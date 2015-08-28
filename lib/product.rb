@@ -3,6 +3,7 @@ require_relative 'category/movie'
 require_relative 'category/unknown'
 require 'nokogiri'
 require 'open-uri'
+require 'forwardable'
 
 class Product
   extend Forwardable
